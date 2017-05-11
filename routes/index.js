@@ -18,17 +18,27 @@ router.get('/', (req, res) => {
   res.render('index')
 })
 
-router.get('/categories/:id', (req, res) => {
-  // db.getCategories(req.params.id, req.app.get('connection'))
-    // .then(function(categories) {
-    category = {id: 1, name: 'Funny'}
-      res.render('categories', category)
-    // })
-    // .catch(function (err) {
-    //   res.status(500).send('DATABASE ERROR: ' + err.message)
-    // })
+
+router.get('/category/:id', (req, res) => {
+  db.getCategory(req.params.id, req.app.get('connection'))
+    .then(function(category) {
+      res.render('category', category)
+    })
+    .catch(function (err) {
+      res.status(500).send('DATABASE ERROR: ' + err.message)
+    })
 })
 
+
+router.get('/project/:id', (req, res) => {
+  db.getProject(req.params.id, req.app.get('connection'))
+    .then(function(project) {
+      res.render('project', project)
+    })
+    .catch(function (err) {
+      res.status(500).send('DATABASE ERROR: ' + err.message)
+    })
+})
 
 
 module.exports = router

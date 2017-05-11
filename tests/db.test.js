@@ -9,20 +9,20 @@ configureDatabase(test)
 
 var db = require('../db')
 
-// test('getCategory gets all categories', function (t) {
-//   var expected = 6
-//   return db.getCategories(t.context.connection)
-//     .then(function(result) {
-//       var actual = result.length
-//       t.is(expected, actual)
-//     })
-// })
-// //
-// test('getProject single project', function (t) {
-//   var expected = 1
-//   return db.getUser(1, t.context.connection)
-//     .then(function (result) {
-//       var actual = result[0].name
-//       t.is(expected, actual)
-//     })
-// })
+test('getCategory gets all categories', function (t) {
+  var expected = 6
+  return db.getCategories(t.context.connection)
+    .then(function(result) {
+      var actual = result.length
+      t.is(expected, actual)
+    })
+})
+
+test('getProject gets a single project', function (t) {
+  var expected = 'rowValu'
+  return db.getProject(1, t.context.connection)
+    .then(function(result) {
+      var actual = result.name
+      t.is(expected, actual)
+    })
+})

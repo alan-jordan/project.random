@@ -17,12 +17,22 @@ test('GET /', (t) => {
     })
 })
 
-test('GET /categories/:id', (t) => {
+test('GET /category/:id', (t) => {
   return request(t.context.app)
-  .get('/categories/2')
+  .get('/category/2')
   .expect(200)
   .then((res) => {
     const $ = cheerio.load(res.text)
-    t.is($('h2').text(), 'Project Categories')
+    t.is($('h2').text(), 'Maps')
+  })
+})
+
+test('GET /project/:id', (t) => {
+  return request(t.context.app)
+  .get('/project/2')
+  .expect(200)
+  .then((res) => {
+    const $ = cheerio.load(res.text)
+    t.is($('h2').text(), 'rowValu')
   })
 })
