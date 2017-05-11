@@ -9,12 +9,21 @@ configureDatabase(test)
 
 var db = require('../db')
 
-test('getCategory gets all categories', function (t) {
+test('getCategories gets all categories', function (t) {
   var expected = 6
   return db.getCategories(t.context.connection)
     .then(function(result) {
       var actual = result.length
-      t.is(expected, actual)
+      t.is(actual, expected)
+    })
+})
+
+test('getCategoryList returns the correct number of projects', function (t) {
+  var expected = 2
+  return db.getCategoryList(2, t.context.connection)
+    .then(function(result) {
+      var actual = result.length
+      t.is(actual, expected)
     })
 })
 
@@ -23,6 +32,6 @@ test('getProject gets a single project', function (t) {
   return db.getProject(1, t.context.connection)
     .then(function(result) {
       var actual = result.name
-      t.is(expected, actual)
+      t.is(actual, expected)
     })
 })

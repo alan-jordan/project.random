@@ -2,7 +2,8 @@
 module.exports = {
   getCategories,
   getProject,
-  getCategory
+  getCategory,
+  getCategoryList
 }
 
 function getCategories (connection) {
@@ -13,6 +14,11 @@ function getCategory(id, connection) {
   return connection('categories')
     .where('id', id)
     .first()
+}
+
+function getCategoryList(categories_id, connection) {
+  return connection('projects')
+    .where('categories_id', categories_id)
 }
 
 function getProject (id, connection) {
