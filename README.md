@@ -1,24 +1,24 @@
-# Boilerplate: Knex.js
-
-Phase 1 boilerplate project with:
-
- - Express
- - Knex
- - SQLite3
- - Express Handlebars
- - body-parser
- - AVA
- - Node Inspector
- - nodemon
+## Project.Random()
 
 
-## Install
+An EDA Project Idea Randomizer by Gabriel, Elena, Alan, and Sarah
 
-```
-npm install
-npm run knex migrate:latest
-npm run knex seed:run
-npm run dev
-```
 
-Be sure to check out the other npm scripts too.
+**** User Stories ****
+
+- Users can select a project category.
+
+- Users can choose to view all projects in a category, or have one randomly generated.
+
+- Category with randomize a picture to pair with the project idea.
+
+- Users can view the app on their laptops/tablets/phones/and all that jazz.
+
+- Users can add a project idea to a specific category
+
+
+** STRETCH GOALS **
+
+- Users can edit existing project ideas
+
+- Users can add/edit new categories

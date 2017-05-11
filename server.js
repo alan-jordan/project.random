@@ -10,10 +10,15 @@ var app = express()
 
 // Middleware
 
-app.engine('hbs', hbs({extname: 'hbs'}))
+app.engine('hbs', hbs({
+  extname: 'hbs',
+  defaultLayout: 'main'
+}))
 app.set('view engine', 'hbs')
 app.set('views', path.join(__dirname, 'views'))
+app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 
 // Routes
 
