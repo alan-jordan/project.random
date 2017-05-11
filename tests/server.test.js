@@ -13,7 +13,6 @@ test('GET /', (t) => {
     .expect(200)
     .then((res) => {
       const $ = cheerio.load(res.text)
-      t.is($('li').first().text(), 'Ambitious Aardvark (aardvark@example.org)')
+      t.is($('h1').text(), 'Project.Random()')
     })
-
 })
