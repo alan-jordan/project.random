@@ -16,3 +16,13 @@ test('GET /', (t) => {
       t.is($('h1').text(), 'Project.Random()')
     })
 })
+
+test('GET /categories/:id', (t) => {
+  return request(t.context.app)
+  .get('/categories/2')
+  .expect(200)
+  .then((res) => {
+    const $ = cheerio.load(res.text)
+    t.is($('h2').text(), 'Project Categories')
+  })
+})

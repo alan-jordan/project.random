@@ -14,8 +14,21 @@ var db = require('../db')
 // })
 
 
-router.get('/', function (req, res) {
+router.get('/', (req, res) => {
   res.render('index')
 })
+
+router.get('/categories/:id', (req, res) => {
+  // db.getCategories(req.params.id, req.app.get('connection'))
+    // .then(function(categories) {
+    category = {id: 1, name: 'Funny'}
+      res.render('categories', category)
+    // })
+    // .catch(function (err) {
+    //   res.status(500).send('DATABASE ERROR: ' + err.message)
+    // })
+})
+
+
 
 module.exports = router
