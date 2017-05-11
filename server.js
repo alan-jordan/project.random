@@ -16,7 +16,9 @@ app.engine('hbs', hbs({
 }))
 app.set('view engine', 'hbs')
 app.set('views', path.join(__dirname, 'views'))
+app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 
 // Routes
 
