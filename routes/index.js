@@ -43,7 +43,7 @@ router.post('/project/add', (req,res) => {
   })
 })
 
-router.get('/category/:id', (req, res) => {
+router.get('/category/:id/all', (req, res) => {
   db.getCategory(req.params.id, req.app.get('connection'))
   .then(function(category) {
     res.render('category', category)
