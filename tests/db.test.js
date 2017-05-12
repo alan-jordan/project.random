@@ -20,7 +20,7 @@ test('getCategories gets all categories', function (t) {
 
 test('getCategoryList returns the correct number of projects', function (t) {
   var expected = 2
-  return db.getCategoryList(2, t.context.connection)
+  return db.getCategoryList(1, t.context.connection)
     .then(function(result) {
       var actual = result.length
       t.is(actual, expected)
@@ -34,4 +34,10 @@ test('getProject gets a single project', function (t) {
       var actual = result.name
       t.is(actual, expected)
     })
+})
+
+test('randomProject gets a single project', function (t) {
+  return db.randomProject(1, t.context.connection, (result) => {
+    console.log(result);
+  })
 })
