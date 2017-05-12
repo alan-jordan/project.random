@@ -1,0 +1,17 @@
+<form class="form" action="/project/add" method="post">
+  Category:
+  <select name="categories_id">
+    {{#each categories}}
+      <option value={{id}}>{{name}}</option>
+    {{/each}}
+  </select>
+
+  Name:
+  <input type="text" name="name" value="{{name}}"><br>
+
+
+  Content:
+  <input type="text" name="content" value='{{content}}'><br>
+
+  <input type="submit" value="Submit">
+</form>
