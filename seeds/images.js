@@ -24,6 +24,7 @@ exports.seed = function(knex, Promise) {
         {id: 17, image_url: 'http://media2.s-nbcnews.com/i/MSNBC/Components/Video/__NEW/nn_07_mp_surfing_dog_140727.jpg', categories_id: 6},
         {id: 18, image_url: 'https://s-media-cache-ak0.pinimg.com/originals/71/c1/02/71c1029817028be58bb853fb112b40f7.jpg', categories_id: 6},
 
+
       ]);
     });
 };

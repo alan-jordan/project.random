@@ -9,21 +9,29 @@ configureDatabase(test)
 
 var db = require('../db')
 
-test('getUsers gets all users', function (t) {
-  // One for each letter of the alphabet!
-  var expected = 26
-  return db.getUsers(t.context.connection)
-    .then(function (result) {
+test('getCategories gets all categories', function (t) {
+  var expected = 6
+  return db.getCategories(t.context.connection)
+    .then(function(result) {
       var actual = result.length
-      t.is(expected, actual)
+      t.is(actual, expected)
     })
 })
 
-test('getUsers gets a single user', function (t) {
-  var expected = 'Ambitious Aardvark'
-  return db.getUser(99901, t.context.connection)
-    .then(function (result) {
-      var actual = result[0].name
-      t.is(expected, actual)
+test('getCategoryList returns the correct number of projects', function (t) {
+  var expected = 2
+  return db.getCategoryList(2, t.context.connection)
+    .then(function(result) {
+      var actual = result.length
+      t.is(actual, expected)
+    })
+})
+
+test('getProject gets a single project', function (t) {
+  var expected = 'rowValu'
+  return db.getProject(1, t.context.connection)
+    .then(function(result) {
+      var actual = result.name
+      t.is(actual, expected)
     })
 })

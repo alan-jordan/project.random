@@ -1,13 +1,28 @@
 
 module.exports = {
-  getUser: getUser,
-  getUsers: getUsers
+  getCategories,
+  getProject,
+  getCategory,
+  getCategoryList
 }
 
-function getUsers (connection) {
-  return connection('users').select()
+function getCategories (connection) {
+  return connection('categories').select()
 }
 
-function getUser (id, connection) {
-  return connection('users').where('id', id)
+function getCategory(id, connection) {
+  return connection('categories')
+    .where('id', id)
+    .first()
+}
+
+function getCategoryList(categories_id, connection) {
+  return connection('projects')
+    .where('categories_id', categories_id)
+}
+
+function getProject (id, connection) {
+  return connection('projects')
+    .where('id', id)
+    .first()
 }
