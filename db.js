@@ -3,7 +3,9 @@ module.exports = {
   getCategories,
   getProject,
   getCategory,
-  getCategoryList
+  getCategoryList,
+  addProject,
+  getProjects
 }
 
 function getCategories (connection) {
@@ -25,4 +27,13 @@ function getProject (id, connection) {
   return connection('projects')
     .where('id', id)
     .first()
+}
+
+function getProjects(connection) {
+  return connection('projects')
+}
+
+function addProject(name, content, id, connection) {
+  return connection('projects')
+  .insert({name, content, categories_id: id})
 }
