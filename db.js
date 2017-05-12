@@ -4,8 +4,10 @@ module.exports = {
   getProject,
   getCategory,
   getCategoryList,
+  randomProject,
   addProject,
   getProjects
+
 }
 
 function getCategories (connection) {
@@ -28,6 +30,18 @@ function getProject (id, connection) {
     .where('id', id)
     .first()
 }
+
+
+function randomProject(categories_id, connection, callback) {
+  return getCategoryList(categories_id, connection)
+  .then ((categoriesArray) => {
+    arrLength = categoriesArray.length
+    let index = Math.round(Math.random()* arrLength)
+    console.log(categoriesArray);
+    let returnedObject = categoriesArray[index]
+    console.log("from random project", returnedObject);
+    callback(returnedObject)
+  })
 
 function getProjects(connection) {
   return connection('projects')

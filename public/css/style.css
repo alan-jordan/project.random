@@ -1,3 +1,35 @@
 body {
-  background-color: red;
+  background-color: #fff;
+  font-family: "Exo", sans-serif;
 }
+
+.banner {
+  margin-top: 10px;
+
+}
+
+.logo {
+  font-size: 64px;
+  font-weight: bolder;
+  /*margin: 0px 0px 150px 0px;*/
+
+}
+
+
+ /* Home Page Styling */
+
+ .sub-heading {
+
+ }
+
+ .main-category {
+
+ }
+
+ .main-image {
+
+ }
+
+ .allLink {
+   font-size: 12pt;
+ }

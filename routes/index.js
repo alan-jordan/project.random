@@ -25,6 +25,21 @@ router.get('/project/add', (req,res) =>{
     })
 })
 
+
+router.get('/category/:id/random', (req, res) => {
+  db.randomProject(Number(req.params.id), req.app.get('connection'), function (result) {
+    console.log(req.params.id);
+    console.log(result);
+  })
+    // .then(function(project) {
+    //   res.render('randomCategory', project)
+    // })
+    // .catch(function (err) {
+    //   res.status(500).send('DATABASE ERROR: ' + err.message)
+    // })
+})
+
+
 router.post('/project/add', (req,res) => {
   db.addProject(req.body.name, req.body.content, req.body.categories_id, req.app.get('connection'))
   .then(function(project) {
@@ -44,6 +59,7 @@ router.get('/category/:id', (req, res) => {
     res.status(500).send('DATABASE ERROR: ' + err.message)
   })
 })
+
 
 router.get('/project/:id', (req, res) => {
   db.getProject(req.params.id, req.app.get('connection'))
