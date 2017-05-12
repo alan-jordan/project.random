@@ -3,7 +3,7 @@ exports.up = function (knex, Promise) {
     table.increments('id').primary()
     table.string('image_url')
     table.integer('categories_id')
-    table.foreign('categories_id').references('categories.id')
+    // table.foreign('categories_id').references('categories.id')
 
   })
 }
