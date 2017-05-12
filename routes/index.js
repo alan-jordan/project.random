@@ -28,15 +28,8 @@ router.get('/project/add', (req,res) =>{
 
 router.get('/category/:id/random', (req, res) => {
   db.randomProject(Number(req.params.id), req.app.get('connection'), function (result) {
-    console.log(req.params.id);
-    console.log(result);
+    res.render('project', result)
   })
-    // .then(function(project) {
-    //   res.render('randomCategory', project)
-    // })
-    // .catch(function (err) {
-    //   res.status(500).send('DATABASE ERROR: ' + err.message)
-    // })
 })
 
 
